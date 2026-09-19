@@ -25,6 +25,30 @@ body {
     font-family: "Trebuchet MS", "Segoe UI", sans-serif;
     position: relative;
     overflow-x: hidden;
+    animation: portfolio-page-enter 550ms ease both;
+}
+
+@keyframes portfolio-page-enter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.portfolio-page-exit {
+    animation: portfolio-page-exit 500ms ease forwards;
+    pointer-events: none;
+}
+
+@keyframes portfolio-page-exit {
+    to {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
 }
 
 body::before {
@@ -262,6 +286,13 @@ body::before {
 
     .portfolio-footer a {
         text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    body.portfolio-page-exit {
+        animation: none;
     }
 }
 
