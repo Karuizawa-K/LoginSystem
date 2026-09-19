@@ -25,63 +25,6 @@ body {
     font-family: "Trebuchet MS", "Segoe UI", sans-serif;
     position: relative;
     overflow-x: hidden;
-    animation: page-enter 950ms ease both;
-    will-change: opacity, transform;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 20;
-    background: #f2a65a;
-    pointer-events: none;
-    animation: curtain-in 950ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
-}
-
-@keyframes page-enter {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-body.page-exit {
-    animation: page-exit 650ms ease forwards;
-    pointer-events: none;
-}
-
-body.page-exit::after {
-    animation: curtain-out 650ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
-}
-
-@keyframes curtain-in {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-100%);
-    }
-}
-
-@keyframes curtain-out {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
-@keyframes page-exit {
-    to {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
 }
 
 body::before {
@@ -231,51 +174,6 @@ body::before {
     line-height: 1.75;
 }
 
-.portfolio-switcher {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-    margin-top: 18px;
-}
-
-.portfolio-switcher a {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    padding: 18px 22px;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    background: var(--surface-light);
-    color: var(--ink);
-    text-decoration: none;
-    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-}
-
-.portfolio-switcher a:hover,
-.portfolio-switcher a:focus-visible {
-    border-color: rgba(242, 166, 90, 0.65);
-    background: rgba(255, 255, 255, 0.13);
-    transform: translateY(-4px);
-}
-
-.portfolio-switcher a.next {
-    text-align: right;
-}
-
-.portfolio-switcher span {
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.portfolio-switcher strong {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.15rem;
-    font-weight: 400;
-}
-
 .focus-list {
     display: flex;
     flex-wrap: wrap;
@@ -327,8 +225,7 @@ body::before {
 }
 
 .portfolio-nav a:focus-visible,
-.portfolio-footer a:focus-visible,
-.portfolio-switcher a:focus-visible {
+.portfolio-footer a:focus-visible {
     outline: 3px solid rgba(255, 255, 255, 0.8);
     outline-offset: 3px;
 }
@@ -363,28 +260,8 @@ body::before {
         flex-direction: column;
     }
 
-    .portfolio-switcher {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-switcher a.next {
-        text-align: left;
-    }
-
     .portfolio-footer a {
         text-align: center;
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    body,
-    body.page-exit {
-        animation: none;
-    }
-
-    body::after,
-    body.page-exit::after {
-        display: none;
-        animation: none;
-    }
-}
