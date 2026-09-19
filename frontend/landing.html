@@ -82,7 +82,7 @@
             })
             .then(data => {
                 document.getElementById("welcome").textContent =
-                    `Welcome, ${data.user.name} (${data.user.email})`;
+                    `Welcome, ${data.user.name}`;
             })
             .catch(() => {
                 localStorage.removeItem("token");
