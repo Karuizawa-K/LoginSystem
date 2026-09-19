@@ -14,6 +14,7 @@
 <div class="header">
         <h1>Our Team</h1>
         <p>Meet the people behind the project.</p>
+        <p id="welcome"></p>
     </div>
 
     <div class="team-container">
@@ -60,7 +61,7 @@
         // If there is no token, go back to login
         if (!token) {
             window.location.href = "index.html";
-        }
+        } 
 
         // Request protected profile data
         fetch(`${API_URL}/api/profile`, {
