@@ -6,21 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
 
-    <main class="card">
+<div class="header">
+        <h1>Our Team</h1>
+        <p>Meet the people behind the project.</p>
+    </div>
 
-        <h1>Dashboard</h1>
+    <div class="team-container">
+        
+        <div class="team-member">
+            <div class="circle-pic">
+                <img src="juswa.png">
+            </div>
+            <span class="name">Joshua Delos Reyes</span>
+        </div>
 
-        <p id="welcome">Loading...</p>
+        
+        <div class="team-member">
+            <div class="circle-pic">
+                <img src="kalbo.jpg">
+                
+            </div>
+            <span class="name">Mark Jefferson Baccay</span>
+        </div>
 
-        <button id="logout">Logout</button>
+        
+        <div class="team-member">
+            <div class="circle-pic">
+                <img src="goding.png">
+            </div>
+            <span class="name">Lhouis Dior Go</span>
+        </div>
 
-    </main>
 
+    </div>
+
+        <main class="card">
+
+            <button id="logout">Logout</button>
+
+        </main>
+  
     <script>
         const API_URL = "https://loginsystem-6z1a.onrender.com";
 
