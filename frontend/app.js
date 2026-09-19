@@ -1,4 +1,4 @@
-const API_URL = "https://loginsystem-6z1a.onrender.com/";
+const API_URL = "https://loginsystem-6z1a.onrender.com";
 
 // =========================
 // LOGIN
