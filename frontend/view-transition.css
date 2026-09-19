@@ -1,0 +1,15 @@
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(hero) {
+    animation-duration: 650ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(hero),
+::view-transition-new(hero) {
+    animation-duration: 650ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    object-fit: contain;
+}
