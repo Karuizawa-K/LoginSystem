@@ -1,14 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduceMotion) {
+const enablePageTransitions = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         return;
     }
 
     document.querySelectorAll('a[href]').forEach(link => {
         const target = new URL(link.href, window.location.href);
 
-        if (target.origin !== window.location.origin || target.pathname === window.location.pathname) {
+        if (target.protocol !== window.location.protocol || target.pathname === window.location.pathname) {
             return;
         }
 
@@ -21,8 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.add("page-exit");
 
             window.setTimeout(() => {
-                window.location.href = link.href;
-            }, 280);
+                window.location.assign(target.href);
+            }, 500);
         });
     });
-});
+};
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", enablePageTransitions);
+} else {
+    enablePageTransitions();
+}

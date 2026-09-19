@@ -25,7 +25,8 @@ body {
     font-family: "Trebuchet MS", "Segoe UI", sans-serif;
     position: relative;
     overflow-x: hidden;
-    animation: page-enter 500ms ease both;
+    animation: page-enter 700ms ease both;
+    will-change: opacity, transform;
 }
 
 @keyframes page-enter {
@@ -40,7 +41,7 @@ body {
 }
 
 body.page-exit {
-    animation: page-exit 280ms ease forwards;
+    animation: page-exit 500ms ease forwards;
     pointer-events: none;
 }
 
