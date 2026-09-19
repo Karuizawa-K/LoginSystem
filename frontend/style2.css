@@ -110,8 +110,15 @@ button:focus-visible {
     border: 1px solid var(--line);
     border-radius: 14px;
     background: var(--surface-light);
+    color: inherit;
+    text-decoration: none;
     text-align: center;
     transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.team-member:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 3px;
 }
 
 .team-member:hover {
