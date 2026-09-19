@@ -9,8 +9,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f2f4f7;
+    background: #10262b;
     color: aliceblue;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(135deg, rgba(9, 28, 34, 0.93), rgba(11, 42, 45, 0.72)),
+        radial-gradient(circle at 14% 18%, rgba(242, 166, 90, 0.24), transparent 30%),
+        radial-gradient(circle at 86% 82%, rgba(88, 157, 161, 0.22), transparent 34%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .reg{
