@@ -11,6 +11,30 @@ body {
     align-items: center;
     background: #f2f4f7;
     color: aliceblue;
+    animation: page-enter 500ms ease both;
+}
+
+@keyframes page-enter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.page-exit {
+    animation: page-exit 280ms ease forwards;
+    pointer-events: none;
+}
+
+@keyframes page-exit {
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
 }
 
 .reg{
@@ -82,6 +106,13 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    body.page-exit {
+        animation: none;
+    }
 }
 
 #message,
