@@ -11,8 +11,18 @@ body {
     align-items: center;
     background: #f2f4f7;
     color: aliceblue;
-    animation: page-enter 700ms ease both;
+    animation: page-enter 950ms ease both;
     will-change: opacity, transform;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: #f2a65a;
+    pointer-events: none;
+    animation: curtain-in 950ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
 }
 
 @keyframes page-enter {
@@ -27,8 +37,30 @@ body {
 }
 
 body.page-exit {
-    animation: page-exit 500ms ease forwards;
+    animation: page-exit 650ms ease forwards;
     pointer-events: none;
+}
+
+body.page-exit::after {
+    animation: curtain-out 650ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes curtain-in {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes curtain-out {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 @keyframes page-exit {
@@ -112,6 +144,12 @@ button:hover {
 @media (prefers-reduced-motion: reduce) {
     body,
     body.page-exit {
+        animation: none;
+    }
+
+    body::after,
+    body.page-exit::after {
+        display: none;
         animation: none;
     }
 }

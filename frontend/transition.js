@@ -22,7 +22,7 @@ const enablePageTransitions = () => {
 
             window.setTimeout(() => {
                 window.location.assign(target.href);
-            }, 500);
+            }, 650);
         });
     });
 };
