@@ -36,7 +36,7 @@ loginForm.addEventListener("submit", async (event) => {
         localStorage.setItem("token", data.token);
 
         // Go to dashboard
-        window.location.href = "registration.html";
+        window.location.href = "landing.html";
 
     } catch (error) {
         message.textContent = "Unable to connect to the server.";
