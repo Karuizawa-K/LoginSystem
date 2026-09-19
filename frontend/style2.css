@@ -34,14 +34,14 @@ button {
 
 .header h1 {
     font-size: 2rem;
-    color: #111827;
+    color: white;
     margin-bottom: 8px;
 }
 
 
 .header p {
     font-size: 1rem;
-    color: #6b7280;
+    color: white;
 }
 
 .team-container {
@@ -78,7 +78,7 @@ button {
 
 .team-member span.name {
     font-weight: 500;
-    color: #374151;
+    color: white;
 }
 
 .back-video {
