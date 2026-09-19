@@ -1,3 +1,12 @@
+:root {
+    --ink: #f7f3ed;
+    --muted: #b9c4c5;
+    --surface: rgba(12, 28, 34, 0.78);
+    --surface-light: rgba(255, 255, 255, 0.09);
+    --line: rgba(255, 255, 255, 0.16);
+    --accent: #f2a65a;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,80 +14,145 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9fafb;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background: #10262b;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 20px;
-    color: white;
+    padding: 48px 24px;
+    color: var(--ink);
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(135deg, rgba(9, 28, 34, 0.93), rgba(11, 42, 45, 0.72)),
+        radial-gradient(circle at 14% 18%, rgba(242, 166, 90, 0.24), transparent 30%),
+        radial-gradient(circle at 86% 82%, rgba(88, 157, 161, 0.22), transparent 34%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 button {
-    width: 100%;
-    margin-top: 18px;
-    padding: 12px;
-    border: 0;
-    border-radius: 6px;
-    background-color: blueviolet;
-    color: white;
+    margin-top: 0;
+    padding: 12px 24px;
+    border: 1px solid rgba(242, 166, 90, 0.55);
+    border-radius: 999px;
+    background: var(--accent);
+    color: #172428;
+    font: inherit;
+    font-weight: 700;
     cursor: pointer;
+    transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+button:hover {
+    background: #ffc078;
+    box-shadow: 0 8px 20px rgba(242, 166, 90, 0.22);
+    transform: translateY(-2px);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 3px;
 }
 
 .header {
+    width: min(100%, 1080px);
+    padding: 36px 28px 30px;
+    border: 1px solid var(--line);
+    border-radius: 24px 24px 10px 10px;
+    background: var(--surface);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
     text-align: center;
-    margin-bottom: 40px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
 .header h1 {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 8px;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 12px;
 }
 
-
 .header p {
+    color: var(--muted);
     font-size: 1rem;
-    color: white;
+    line-height: 1.6;
+}
+
+#welcome {
+    color: var(--accent) !important;
+    font-size: 0.92rem !important;
+    margin-top: 16px;
 }
 
 .team-container {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
+    width: min(100%, 1080px);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    padding: 18px 0;
 }
 
 .team-member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    min-width: 0;
+    padding: 18px 18px 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface-light);
+    text-align: center;
+    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.team-member:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(242, 166, 90, 0.55);
+    transform: translateY(-5px);
 }
 
 .circle-pic {
-    width: 220px;
-    height: 220px;
+    width: min(100%, 190px);
+    aspect-ratio: 1;
+    margin: 0 auto 18px;
     border-radius: 50%;
-    background-color: #e5e7eb;
-    border: 4px solid #ffffff;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background: #dce3de;
+    border: 5px solid rgba(255, 255, 255, 0.78);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.24);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-bottom: 12px;
 }
 
-.circle-pic span {
-    color: #9ca3af;
-    font-size: 0.875rem;
+.circle-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .team-member span.name {
-    font-weight: 500;
-    color: white;
+    color: var(--ink);
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.card {
+    width: min(100%, 1080px);
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 0 0;
 }
 
 .back-video {
@@ -89,6 +163,45 @@ button {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -1; 
-    object-fit: cover; 
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.25;
+}
+
+@media (max-width: 760px) {
+    body {
+        justify-content: flex-start;
+        padding: 24px 16px 32px;
+    }
+
+    .header {
+        padding: 30px 20px 24px;
+    }
+
+    .team-container {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    .team-member {
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 18px;
+        text-align: left;
+    }
+
+    .circle-pic {
+        width: 96px;
+        margin: 0;
+    }
+
+    .card {
+        justify-content: center;
+    }
+
+    button {
+        width: min(100%, 420px);
+    }
 }
