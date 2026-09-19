@@ -1,3 +1,5 @@
+const API_URL = "https://loginsystem-6z1a.onrender.com";
+
 const enablePageTransitions = () => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         return;
